@@ -9,6 +9,14 @@ class Player(object):
 
         self.hands.append(Hand())
 
+    def split(self, hand, shoe):
+        new_hand = Hand()
+        new_hand.deal(hand.pop())
+        self.hands.append(new_hand)
+        for hand in self.hands:
+            if len(hand) is 1:
+                shoe.deal(hand)
+
     def play(self, shoe, show_card):
         move = ''
 
@@ -19,7 +27,7 @@ class Player(object):
                     break
 
                 # Pair
-                if len(hand) is 2 and hand[0] is hand[1]:
+                if len(hand) is 2 and hand[0] == hand[1]:
                     pair_card = hand[0]
                     move = strategy.pairs[pair_card][show_card]
 
@@ -41,10 +49,7 @@ class Player(object):
                 if move is 'hit':
                     shoe.deal(hand)
                 elif move is 'split':
-                    hand = [[hand[0]], [hand[1]]]
-                    shoe.deal(hand)
-                    for _ in hand:
-                        self.play(shoe, show_card)
+                    self.split(hand, shoe)
                 elif move is 'double':
                     shoe.deal(hand)
                     move = 'stand'
