@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 import sys
-from helpers import Shoe, Player, Dealer, Hand
+from shoe import Shoe
+from players.player import Player
+from players.dealer import Dealer
 
 #TODO: Implement split logic
 #TODO: Calculate odds if one player is using the strategy while others are not OR while all players use the strategy (comparison)
