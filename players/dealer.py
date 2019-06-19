@@ -8,10 +8,7 @@ class Dealer(Player):
 
     @property
     def show_card(self):
-        if type(self.__show_card) is tuple:
-            return 11
-        else:
-            return self.__show_card
+        return self.__show_card
 
     @show_card.setter
     def show_card(self, val):

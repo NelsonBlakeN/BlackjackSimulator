@@ -9,7 +9,7 @@ class Shoe:
 
     def _generate_decks(self, num_decks):
         # Create single deck
-        vals = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, (1, 11)]
+        vals = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
         deck = [v for value in vals for v in repeat(value, 4)]
 
         # Duplicate deck in single list

@@ -24,11 +24,11 @@ class Player(object):
                     move = strategy.pairs[pair_card][show_card]
 
                 # Soft total
-                elif len(hand) is 2 and any(isinstance(card, tuple) for card in hand):
+                elif len(hand) is 2 and any(card is 11 for card in hand):
                     if hand.total >= 19:
                         move = 'stand'
                     else:
-                        non_ace = hand[0] if type(hand[0]) is not tuple else hand[1]
+                        non_ace = hand[0] if hand[0] is not 11 else hand[1]
                         move = strategy.soft_totals[non_ace][show_card]
 
                 # Hard total

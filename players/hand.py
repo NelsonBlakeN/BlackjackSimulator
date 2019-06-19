@@ -4,13 +4,13 @@ class Hand(list):
 
     @property
     def total(self):
-        if not any(isinstance(card, tuple) for card in self):
+        if not any(card == 11 for card in self):
             return sum(self)
         else:
             not_aces = []
             aces = 0
             for card in self:
-                if type(card) is not tuple:
+                if card is not 11:
                     not_aces.append(card)
                 else:
                     aces += 1
@@ -25,4 +25,4 @@ class Hand(list):
         self.append(card)
 
     def has_ace(self):
-        return any(isinstance(card, tuple) for card in self)
+        return any(card == 11 for card in self)
