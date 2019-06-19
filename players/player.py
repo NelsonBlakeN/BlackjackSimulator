@@ -14,8 +14,8 @@ class Player(object):
         new_hand.deal(hand.pop())
         self.hands.append(new_hand)
         for hand in self.hands:
-            if len(hand) is 2:
-                shoe.deal(self.hands)
+            if len(hand) is 1:
+                shoe.deal(hand)
 
     def play(self, shoe, show_card):
         move = ''

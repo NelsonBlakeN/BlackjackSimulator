@@ -8,6 +8,18 @@ from players.dealer import Dealer
 #TODO: Implement split logic
 #TODO: Calculate odds if one player is using the strategy while others are not OR while all players use the strategy (comparison)
 
+def test_split(run, player, dealer):
+    if not run:
+        return
+    from players.hand import Hand
+    player.hands[0] = Hand()
+    player.hands[0].deal(6)
+    player.hands[0].deal(6)
+
+    dealer.hand = Hand()
+    dealer.hand.deal(6)
+    dealer.hand.deal(6)
+
 if __name__ == '__main__':
     # Establish game
     num_decks = 1
@@ -29,6 +41,8 @@ if __name__ == '__main__':
         for player in players:
             shoe.deal(player.hands[0])
         shoe.deal(dealer.hand)
+
+    test_split(True, players[0], dealer)
 
     dealer.show_card = dealer.hand[1]
 
