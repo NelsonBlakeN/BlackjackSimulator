@@ -22,3 +22,7 @@ class Dealer(Player):
         while self.hand.total < 17:
             shoe.deal(self.hand)
 
+    def clear_hand(self):
+        super().clear_hand()
+        self.hand = self.hands[0]
+
