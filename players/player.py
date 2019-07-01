@@ -4,10 +4,9 @@ from .hand import Hand
 
 class Player(object):
     def __init__(self):
-        self.hands = []
         self.results = []
 
-        self.hands.append(Hand())
+        self.clear_hand()
 
     def split(self, hand, shoe):
         new_hand = Hand()
@@ -53,3 +52,7 @@ class Player(object):
                 elif move is 'double':
                     shoe.deal(hand)
                     move = 'stand'
+
+    def clear_hand(self):
+        self.hands = []
+        self.hands.append(Hand())
